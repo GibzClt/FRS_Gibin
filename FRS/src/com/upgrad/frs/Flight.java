@@ -56,6 +56,7 @@ public class Flight {
 
     void updateSeat(){
         bookedSeats++;
+        capacity--;
     }
 
 }

@@ -1,8 +1,13 @@
 package com.upgrad.frs;
 
+import java.text.ParseException;
+import java.util.Date;
+import java.text.SimpleDateFormat;
+import java.util.concurrent.TimeUnit;
+
 public class Ticket {
 
-    String pnr;
+    int pnr;
     String destination;
     String departure;
     Flight flight;
@@ -13,12 +18,25 @@ public class Ticket {
     float price;
     boolean cancelled;
 
+    Ticket(int pnr, String destination, String departure, Flight flight, String departDateTime,
+           String arriveDateTime, Passenger passenger, String seatNumber, float price){
+        this.pnr = pnr;
+        this.destination = destination;
+        this.departure = departure;
+        this.flight = flight;
+        this.departDateTime = departDateTime;
+        this.arriveDateTime = arriveDateTime;
+        this.passenger = passenger;
+        this. seatNumber = seatNumber;
+        this.price = price;
+        cancelled = false;
+    }
 
-    public String getPnr() {
+    public int getPnr() {
         return pnr;
     }
 
-    public void setPnr(String pnr) {
+    public void setPnr(int pnr) {
         this.pnr = pnr;
     }
 
@@ -95,7 +113,23 @@ public class Ticket {
     }
 
     public String getDuration(String departDateTime, String arriveDateTime) {
-        //to be changed
+        SimpleDateFormat duration = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
+        try{
+            Date start = duration.parse(departDateTime);
+            Date end = duration.parse(arriveDateTime);
+
+            long difference = end.getTime() - start.getTime();
+            long differenceInSeconds = TimeUnit.MILLISECONDS.toSeconds(difference) % 60;
+            long differenceInMinutes = TimeUnit.MILLISECONDS.toMinutes(difference) % 60;
+            long differenceInHours = TimeUnit.MILLISECONDS.toHours(difference) % 24;
+            long differenceInDays = TimeUnit.MILLISECONDS.toDays(difference) % 365;
+
+            return differenceInDays + " days, "+ differenceInHours + " hours, " + differenceInMinutes + " minutes, " +
+                    differenceInSeconds + " seconds";
+        }
+        catch (ParseException e){
+            System.out.println("Wrong date format !!! ");
+        }
         return null;
     }
 }

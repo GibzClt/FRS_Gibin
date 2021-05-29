@@ -8,11 +8,17 @@ public class Passenger {
     Ticket ticket;
     private boolean registered;
 
-        class Contact {
+        private static class Contact {
 
         private String name;
         private String phone;
         private String email;
+
+        Contact(String name, String phone, String email){
+            this.name = name;
+            this.phone = phone;
+            this.email = email;
+        }
 
         public String getName() {
             return name;
@@ -39,11 +45,17 @@ public class Passenger {
         }
     }
 
-        class Address {
+        private static class Address {
 
         String street;
         String city;
         String state;
+
+        Address(String street, String city, String state){
+            this.street = street;
+            this.city = city;
+            this.state = state;
+        }
 
         public String getStreet() {
             return street;
@@ -71,15 +83,29 @@ public class Passenger {
     }
 
 
-    Passenger( int id, Contact contact, Address address ){
+    Passenger( int id, String name, String phone, String email, String street, String city, String state){
         this.id = id;
-        this.contact = contact;
-        this.address = address;
+        this.contact = new Contact(name, phone, email);
+        this.address = new Address(street, city, state);
         registered = true;
     }
 
     boolean isRegistered(){
             return registered;
+    }
+
+    Regular bookTicket(String destination, String departure, Flight flight, String departDateTime, String arriveDateTime,
+                       Passenger passenger, String seatNumber, float price, boolean food, boolean water, boolean snack) {
+
+           return new Regular(111,destination, departure, flight, departDateTime, arriveDateTime, passenger,
+                   seatNumber, price, food, water, snack );
+    }
+
+    Tourist bookTicket(String destination, String departure, Flight flight, String departDateTime, String arriveDateTime,
+                       Passenger passenger, String seatNumber, float price, String hotelAddress, String[] touristLocation) {
+
+        return new Tourist(111,destination, departure, flight, departDateTime, arriveDateTime, passenger,
+                seatNumber, price, hotelAddress, touristLocation);
     }
 
 }
