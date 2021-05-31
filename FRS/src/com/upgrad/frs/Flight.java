@@ -12,6 +12,7 @@ public class Flight {
         this.flightNumber = flightNumber;
         this.airline = airline;
         this.capacity = capacity;
+        flightAvailable = this.capacity  > 0;
     }
 
     public void setFlightAvailable(boolean flightAvailable) {
@@ -35,6 +36,9 @@ public class Flight {
     }
 
     public boolean isFlightAvailable(){
+        if(!(capacity > 0)) {
+            flightAvailable = false;
+        }
         return flightAvailable;
     }
 

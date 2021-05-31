@@ -105,7 +105,7 @@ public class Passenger {
 
     Regular bookTicket(String destination, String departure, Flight flight, String departDateTime, String arriveDateTime,
                        Passenger passenger, String seatNumber, float price, boolean food, boolean water, boolean snack) {
-            if(flight.getCapacity() > 0){
+            if(flight.isFlightAvailable()){
                 return new Regular(111,destination, departure, flight, departDateTime, arriveDateTime, passenger,
                         seatNumber, price, food, water, snack );
             }
