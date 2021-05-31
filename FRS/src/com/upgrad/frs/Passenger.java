@@ -82,6 +82,9 @@ public class Passenger {
         }
     }
 
+    Passenger(){
+
+    }
 
     Passenger( int id, String name, String phone, String email, String street, String city, String state){
         this.id = id;
@@ -90,22 +93,41 @@ public class Passenger {
         registered = true;
     }
 
+    Passenger (Passenger passenger){
+        this.id = passenger.id;
+        this.contact = passenger.contact;
+        this.address = passenger.address;
+    }
+
     boolean isRegistered(){
             return registered;
     }
 
     Regular bookTicket(String destination, String departure, Flight flight, String departDateTime, String arriveDateTime,
                        Passenger passenger, String seatNumber, float price, boolean food, boolean water, boolean snack) {
+            if(flight.getCapacity() > 0){
+                return new Regular(111,destination, departure, flight, departDateTime, arriveDateTime, passenger,
+                        seatNumber, price, food, water, snack );
+            }
 
-           return new Regular(111,destination, departure, flight, departDateTime, arriveDateTime, passenger,
-                   seatNumber, price, food, water, snack );
+            else {
+                System.out.println("Sorry, all the seats in this flight are booked. Please check another flight.");
+                return null;
+            }
     }
 
     Tourist bookTicket(String destination, String departure, Flight flight, String departDateTime, String arriveDateTime,
                        Passenger passenger, String seatNumber, float price, String hotelAddress, String[] touristLocation) {
+        if(flight.getCapacity() > 0){
+            return new Tourist(111,destination, departure, flight, departDateTime, arriveDateTime, passenger,
+                    seatNumber, price, hotelAddress, touristLocation);
+        }
 
-        return new Tourist(111,destination, departure, flight, departDateTime, arriveDateTime, passenger,
-                seatNumber, price, hotelAddress, touristLocation);
+        else {
+            System.out.println("Sorry, all the seats in this flight are booked. Please check another flight.");
+            return null;
+        }
+
     }
 
 }

@@ -10,7 +10,7 @@ public class Main {
         System.out.println("    Welcome to Upgrad flights !");
         System.out.println("====================================");
         Passenger passenger = new Passenger(01, "Gibin", "8606123456", "qwert@email.com", "tokyo", "texas", "zambia");
-        Flight flight_Etihad = new Flight("101", "Etihad", 300);
+        Flight flight_Etihad = new Flight("101", "Etihad", 2);
         System.out.println("What ticket");
         Scanner input = new Scanner(System.in);
         String ticketType = input.nextLine();
@@ -30,6 +30,20 @@ public class Main {
             System.out.println("Tourist ticket : REGISTERED");
             System.out.println(Arrays.toString(tourist_Gibin.getTouristLocation()));
             }
+
+        Passenger passenger_1 = new Passenger(02, "Thomas", "7037123456", "lala@email.com", "ibm", "gandhinagar", "goa");
+        Regular regular_Joshua = passenger.bookTicket("Bangalore", "Goa", flight_Etihad, "29-05-2021 16:20:05", "31-05-2021 17:25:10",
+                passenger_1, "13B", 10000, true, true, false);
+        System.out.println("Regular ticket : REGISTERED");
+        System.out.println(regular_Joshua.displayServices());
+        System.out.println(flight_Etihad.getBookedSeats() + " seats booked ");
+        System.out.println(flight_Etihad.getCapacity());
+
+        Passenger passenger_2 = new Passenger(03, "Ashish", "4747553456", "tholath@email.com", "dollar", "kr puram", "bangalore");
+        Regular regular_Ashish = passenger.bookTicket("Bangalore", "Goa", flight_Etihad, "29-05-2021 16:20:05", "31-05-2021 17:25:10",
+                passenger_2, "13B", 10000, false, true, false);
+
+
 
     }
 }
