@@ -12,7 +12,7 @@ public class Regular extends Ticket {
         this.water = water;
         this.snack = snack;
         this.cancelled = false;
-        flight.updateSeat();
+        flight.updateSeat(1);
     }
 
     public boolean isFood() {

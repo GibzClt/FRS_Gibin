@@ -13,7 +13,7 @@ public class Tourist extends Ticket{
         this.hotelAddress = hotelAddress;
         this.touristLocation = touristLocation;
         this.cancelled = false;
-        flight.updateSeat();
+        flight.updateSeat(1);
 
     }
 

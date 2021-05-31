@@ -44,6 +44,7 @@ public class Main {
                 passenger_2, "13B", 10000, false, true, false);
 
 
-
+        regular_Joshua.cancelTicket(111, flight_Etihad);
+        System.out.println(flight_Etihad.getCapacity());
     }
 }

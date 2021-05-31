@@ -108,8 +108,15 @@ public abstract class Ticket {
         return cancelled;
     }
 
-    public void setCancelled(boolean cancelled) {
-        this.cancelled = cancelled;
+    public void cancelTicket(int pnr, Flight flight ) {
+        if(this.pnr == pnr){
+            this.cancelled = true;
+            flight.updateSeat(-1);
+            System.out.println("Ticket successfully cancelled ");
+        }
+        else{
+            System.out.println("Wrong ticket details ! ");
+        }
     }
 
     abstract void checkStatus();

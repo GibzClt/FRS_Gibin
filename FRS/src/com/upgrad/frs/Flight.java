@@ -54,9 +54,9 @@ public class Flight {
         return airline;
     }
 
-    void updateSeat(){
-        bookedSeats++;
-        capacity--;
+    void updateSeat(int i){
+        bookedSeats+=i;
+        capacity-=i;
     }
 
 }
