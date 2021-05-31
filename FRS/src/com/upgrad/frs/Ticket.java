@@ -112,6 +112,8 @@ public abstract class Ticket {
         this.cancelled = cancelled;
     }
 
+    abstract void checkStatus();
+
     public String getDuration(String departDateTime, String arriveDateTime) {
         SimpleDateFormat duration = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
         try{

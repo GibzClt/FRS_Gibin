@@ -18,7 +18,7 @@ public class Main {
         if(ticketType.toLowerCase().equals("regular")){
             Regular regular_Gibin = passenger.bookTicket( "Atlants", "Jamaica", flight_Etihad, "29-05-2021 16:20:05", "31-05-2021 17:25:10",
                     passenger, "14F", 10000, false, false, true);
-            System.out.println("Regular ticket : REGISTERED");
+            regular_Gibin.checkStatus();
             System.out.println(regular_Gibin.displayServices());
             System.out.println(flight_Etihad.getBookedSeats() + " seats booked ");
             System.out.println(flight_Etihad.getCapacity());
@@ -27,14 +27,14 @@ public class Main {
             String[] location = {"Arvi waterfalls", "Kurvi waterfalls", "MArvi waterfalls"};
             Tourist tourist_Gibin = passenger.bookTicket( "Atlants", "Jamaica", flight_Etihad, "29-05-2021 16:20:05", "31-05-2021 17:25:10",
                     passenger, "14F", 10000, "Nayana Hotels", location);
-            System.out.println("Tourist ticket : REGISTERED");
+            tourist_Gibin.checkStatus();
             System.out.println(Arrays.toString(tourist_Gibin.getTouristLocation()));
             }
 
         Passenger passenger_1 = new Passenger(02, "Thomas", "7037123456", "lala@email.com", "ibm", "gandhinagar", "goa");
         Regular regular_Joshua = passenger.bookTicket("Bangalore", "Goa", flight_Etihad, "29-05-2021 16:20:05", "31-05-2021 17:25:10",
                 passenger_1, "13B", 10000, true, true, false);
-        System.out.println("Regular ticket : REGISTERED");
+        regular_Joshua.checkStatus();
         System.out.println(regular_Joshua.displayServices());
         System.out.println(flight_Etihad.getBookedSeats() + " seats booked ");
         System.out.println(flight_Etihad.getCapacity());

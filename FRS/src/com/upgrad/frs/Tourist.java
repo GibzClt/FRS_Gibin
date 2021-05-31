@@ -12,6 +12,7 @@ public class Tourist extends Ticket{
         super(pnr, destination, departure, flight, departDateTime, arriveDateTime, passenger, seatNumber, price);
         this.hotelAddress = hotelAddress;
         this.touristLocation = touristLocation;
+        this.cancelled = false;
         flight.updateSeat();
 
     }
@@ -32,6 +33,15 @@ public class Tourist extends Ticket{
         this.touristLocation = touristLocation;
     }
 
+    void checkStatus(){
+        if(! isCancelled()){
+            System.out.println("Tourist ticket "+ this.getPnr() + " confirmed ");
+        }
+        else{
+            System.out.println("Tourist ticket "+ this.getPnr() + " cancelled ");
+        }
+    }
+
     void removeLocation(String location){
         int originalNumber = this.touristLocation.length;
         String[] newLocation = new String[originalNumber - 1];
@@ -45,6 +55,7 @@ public class Tourist extends Ticket{
         }
         this.touristLocation = newLocation;
     }
+
     void addLocation(String location){
         int originalNumber = this.touristLocation.length;
         if ( originalNumber < 5) {

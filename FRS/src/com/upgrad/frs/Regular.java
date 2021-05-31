@@ -11,6 +11,7 @@ public class Regular extends Ticket {
         this.food = food;
         this.water = water;
         this.snack = snack;
+        this.cancelled = false;
         flight.updateSeat();
     }
 
@@ -36,6 +37,15 @@ public class Regular extends Ticket {
 
     public void setSnack(boolean snack) {
         this.snack = snack;
+    }
+
+    void checkStatus(){
+        if(! isCancelled()){
+            System.out.println("Regular ticket "+ getPnr() + " confirmed ");
+        }
+        else{
+            System.out.println("Regular ticket "+ getPnr() + " cancelled ");
+        }
     }
 
     String displayServices(){
