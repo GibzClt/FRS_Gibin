@@ -2,7 +2,7 @@ package com.upgrad.frs;
 
 public class Passenger {
 
-    private int id;
+    private String id;
     private Contact contact;
     Address address;
     Ticket ticket;
@@ -86,7 +86,7 @@ public class Passenger {
 
     }
 
-    Passenger( int id, String name, String phone, String email, String street, String city, String state){
+    Passenger( String id, String name, String phone, String email, String street, String city, String state){
         this.id = id;
         this.contact = new Contact(name, phone, email);
         this.address = new Address(street, city, state);
@@ -103,11 +103,11 @@ public class Passenger {
             return registered;
     }
 
-    Regular bookTicket(String destination, String departure, Flight flight, String departDateTime, String arriveDateTime,
-                       Passenger passenger, String seatNumber, float price, boolean food, boolean water, boolean snack) {
+    Regular bookTicket(String pnr, String destination, String departure, Flight flight, String departDateTime, String arriveDateTime,
+                       Passenger passenger, String seatNumber, float price, boolean specialService) {
             if(flight.isFlightAvailable()){
-                return new Regular(111,destination, departure, flight, departDateTime, arriveDateTime, passenger,
-                        seatNumber, price, food, water, snack );
+                return new Regular(pnr,destination, departure, flight, departDateTime, arriveDateTime, passenger,
+                        seatNumber, price, specialService );
             }
 
             else {
@@ -116,10 +116,10 @@ public class Passenger {
             }
     }
 
-    Tourist bookTicket(String destination, String departure, Flight flight, String departDateTime, String arriveDateTime,
+    Tourist bookTicket(String pnr, String destination, String departure, Flight flight, String departDateTime, String arriveDateTime,
                        Passenger passenger, String seatNumber, float price, String hotelAddress, String[] touristLocation) {
         if(flight.getCapacity() > 0){
-            return new Tourist(111,destination, departure, flight, departDateTime, arriveDateTime, passenger,
+            return new Tourist(pnr,destination, departure, flight, departDateTime, arriveDateTime, passenger,
                     seatNumber, price, hotelAddress, touristLocation);
         }
 

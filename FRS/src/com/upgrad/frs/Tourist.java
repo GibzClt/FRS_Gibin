@@ -7,7 +7,7 @@ public class Tourist extends Ticket{
     String hotelAddress;
     String[] touristLocation;
 
-    Tourist(int pnr, String destination, String departure, Flight flight, String departDateTime,
+    Tourist(String pnr, String destination, String departure, Flight flight, String departDateTime,
             String arriveDateTime, Passenger passenger, String seatNumber, float price, String hotelAddress, String[] touristLocation) {
         super(pnr, destination, departure, flight, departDateTime, arriveDateTime, passenger, seatNumber, price);
         this.hotelAddress = hotelAddress;
@@ -44,16 +44,23 @@ public class Tourist extends Ticket{
 
     void removeLocation(String location){
         int originalNumber = this.touristLocation.length;
-        String[] newLocation = new String[originalNumber - 1];
-        int pos = 0;
-        for (int i = 0; pos < originalNumber - 1; i++,pos++){
-            if( this.touristLocation[i].equals(location)){
-                pos--;
-                continue;
+        if(originalNumber > 1)
+        {
+            String[] newLocation = new String[originalNumber - 1];
+            int pos = 0;
+            for (int i = 0; pos < originalNumber - 1; i++, pos++) {
+                if (this.touristLocation[i].equals(location)) {
+                    pos--;
+                    continue;
+                }
+                newLocation[pos] = this.touristLocation[i];
             }
-            newLocation[pos] = this.touristLocation[i];
+            this.touristLocation = newLocation;
         }
-        this.touristLocation = newLocation;
+        else{
+            System.out.println("You have to select at least one location \n");
+        }
+
     }
 
     void addLocation(String location){

@@ -7,7 +7,7 @@ import java.util.concurrent.TimeUnit;
 
 public abstract class Ticket {
 
-    int pnr;
+    String pnr;
     String destination;
     String departure;
     Flight flight;
@@ -18,7 +18,7 @@ public abstract class Ticket {
     float price;
     boolean cancelled;
 
-    Ticket(int pnr, String destination, String departure, Flight flight, String departDateTime,
+    Ticket(String pnr, String destination, String departure, Flight flight, String departDateTime,
            String arriveDateTime, Passenger passenger, String seatNumber, float price){
         this.pnr = pnr;
         this.destination = destination;
@@ -32,13 +32,13 @@ public abstract class Ticket {
         cancelled = false;
     }
 
-    public int getPnr() {
+    public String getPnr() {
         return pnr;
     }
 
-    public void setPnr(int pnr) {
-        this.pnr = pnr;
-    }
+//    public void setPnr(String pnr) {
+//        this.pnr = pnr;
+//    }
 
     public String getDestination() {
         return destination;
@@ -108,8 +108,8 @@ public abstract class Ticket {
         return cancelled;
     }
 
-    public void cancelTicket(int pnr, Flight flight ) {
-        if(this.pnr == pnr){
+    public void cancelTicket(String pnr, Flight flight ) {
+        if(this.pnr.equals(pnr)){
             this.cancelled = true;
             flight.updateSeat(-1);
             System.out.println("Ticket successfully cancelled ");

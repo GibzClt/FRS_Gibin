@@ -62,5 +62,8 @@ public class Flight {
         bookedSeats+=i;
         capacity-=i;
     }
+    String getFlightDetails(){
+        return getFlightNumber() + "  " + getAirline() + "  | Capacity : " + getCapacity();
+    }
 
 }

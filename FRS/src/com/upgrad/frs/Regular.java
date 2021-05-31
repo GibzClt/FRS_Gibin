@@ -1,42 +1,22 @@
 package com.upgrad.frs;
 
 public class Regular extends Ticket {
-    private boolean food;
-    private boolean water;
-    private boolean snack;
+    private boolean specialService;
 
-    Regular(int pnr, String destination, String departure, Flight flight, String departDateTime,
-            String arriveDateTime, Passenger passenger, String seatNumber, float price, boolean food, boolean water, boolean snack) {
+    Regular(String pnr, String destination, String departure, Flight flight, String departDateTime,
+            String arriveDateTime, Passenger passenger, String seatNumber, float price, boolean specialServie) {
         super(pnr, destination, departure, flight, departDateTime, arriveDateTime, passenger, seatNumber, price);
-        this.food = food;
-        this.water = water;
-        this.snack = snack;
+        this.specialService = specialServie;
         this.cancelled = false;
         flight.updateSeat(1);
     }
 
-    public boolean isFood() {
-        return food;
+    public boolean isSpecialService() {
+        return specialService;
     }
 
-    public void setFood(boolean food) {
-        this.food = food;
-    }
-
-    public boolean isWater() {
-        return water;
-    }
-
-    public void setWater(boolean water) {
-        this.water = water;
-    }
-
-    public boolean isSnack() {
-        return snack;
-    }
-
-    public void setSnack(boolean snack) {
-        this.snack = snack;
+    public void setSpecialService(boolean specialService) {
+        this.specialService = specialService;
     }
 
     void checkStatus(){
@@ -49,16 +29,9 @@ public class Regular extends Ticket {
     }
 
     String displayServices(){
-        String a = "", b = "", c = "";
-        if(food){
-            a = "food ";
+        if(specialService){
+            return "food, water and snacks ";
         }
-        if(water){
-            b = ("water ");
-        }
-        if(snack){
-            c = ("snack ");
-        }
-        return a + b + c ;
+        return "No special services availed ";
     }
 }
