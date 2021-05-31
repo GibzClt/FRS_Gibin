@@ -5,7 +5,7 @@ import java.util.Date;
 import java.text.SimpleDateFormat;
 import java.util.concurrent.TimeUnit;
 
-public class Ticket {
+public abstract class Ticket {
 
     int pnr;
     String destination;
