@@ -3,7 +3,7 @@ package com.upgrad.frs;
 public class Passenger {
 
     private String id;
-    private Contact contact;
+    Contact contact;
     Address address;
     Ticket ticket;
     private boolean registered;
@@ -102,6 +102,15 @@ public class Passenger {
     boolean isRegistered(){
             return registered;
     }
+
+    String getContactDetails(Contact contact){
+            return "Name : " + contact.getName() + "\nMobile number : " + contact.getPhone() + "\nEmail Id : " + contact.getEmail();
+    }
+
+    String getAddressDetails(Address address){
+        return "Street : " + address.getStreet() + "\nCity : " + address.getCity() + "\nState : " + address.getState();
+    }
+
 
     Regular bookTicket(String pnr, String destination, String departure, Flight flight, String departDateTime, String arriveDateTime,
                        Passenger passenger, String seatNumber, float price, boolean specialService) {
