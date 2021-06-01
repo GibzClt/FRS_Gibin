@@ -76,13 +76,13 @@ public class Flight {
     }
 
     // to update the seats of the flight
-    void updateSeat(int i){
+    public void updateSeat(int i){
         bookedSeats+=i;
         capacity-=i;
     }
 
     //to get the flight details
-    String getFlightDetails(){
+    public String getFlightDetails(){
         return String.format("%-5s %-12s | %-5s",getFlightNumber(), getAirline(), getCapacity());
     }
 }

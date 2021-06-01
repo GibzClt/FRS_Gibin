@@ -4,7 +4,7 @@ public class Passenger {
 
     private String id;
     private Contact contact;
-    Address address;
+    private Address address;
     Ticket ticket;
     private boolean registered;
 
@@ -49,9 +49,9 @@ public class Passenger {
         // Declaring address class
         private static class Address {
 
-        String street;
-        String city;
-        String state;
+        private String street;
+        private String city;
+        private String state;
 
         Address(String street, String city, String state){
             this.street = street;
@@ -102,17 +102,17 @@ public class Passenger {
     }
 
     // to check if the passenger is registered
-    boolean isRegistered(){
+    public boolean isRegistered(){
             return registered;
     }
 
     // to get the contact details
-    String getContactDetails(Contact contact){
+    public String getContactDetails(Contact contact){
         return "Name : " + contact.getName() + "\nMobile number : " + contact.getPhone() + "\nEmail Id : " + contact.getEmail();
     }
 
     // to get the address details
-    String getAddressDetails(Address address){
+    public String getAddressDetails(Address address){
         return "Street : " + address.getStreet() + "\nCity : " + address.getCity() + "\nState : " + address.getState();
     }
 

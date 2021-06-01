@@ -7,16 +7,16 @@ import java.util.concurrent.TimeUnit;
 
 public abstract class Ticket {
 
-    String pnr;
-    String destination;
-    String departure;
-    Flight flight;
-    String departDateTime;
-    String arriveDateTime;
-    Passenger passenger;
-    String seatNumber;
-    float price;
-    boolean cancelled;
+    protected String pnr;
+    protected String destination;
+    protected String departure;
+    protected Flight flight;
+    protected String departDateTime;
+    protected String arriveDateTime;
+    protected Passenger passenger;
+    protected String seatNumber;
+    protected float price;
+    protected boolean cancelled;
 
     Ticket(String pnr, String destination, String departure, Flight flight, String departDateTime,
                String arriveDateTime, Passenger passenger, String seatNumber, float price){

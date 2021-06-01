@@ -4,8 +4,8 @@ import java.util.*;
 
 public class Tourist extends Ticket{
 
-    String hotelAddress;
-    String[] touristLocation;
+    private String hotelAddress;
+    private String[] touristLocation;
 
     Tourist(String pnr, String destination, String departure, Flight flight, String departDateTime,
             String arriveDateTime, Passenger passenger, String seatNumber, float price, String hotelAddress, String[] touristLocation) {
