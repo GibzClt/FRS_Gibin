@@ -8,6 +8,7 @@ public class Passenger {
     Ticket ticket;
     private boolean registered;
 
+        // Declaring contact class
         private static class Contact {
 
         private String name;
@@ -45,6 +46,7 @@ public class Passenger {
         }
     }
 
+        // Declaring address class
         private static class Address {
 
         String street;
@@ -99,45 +101,42 @@ public class Passenger {
         this.address = passenger.address;
     }
 
+    // to check if the passenger is registered
     boolean isRegistered(){
             return registered;
     }
 
-    //To get the contact details
+    // to get the contact details
     String getContactDetails(Contact contact){
         return "Name : " + contact.getName() + "\nMobile number : " + contact.getPhone() + "\nEmail Id : " + contact.getEmail();
     }
 
-    //To get the address details
+    // to get the address details
     String getAddressDetails(Address address){
         return "Street : " + address.getStreet() + "\nCity : " + address.getCity() + "\nState : " + address.getState();
     }
 
+    // to book a regular ticket
     Regular bookTicket(String pnr, String destination, String departure, Flight flight, String departDateTime, String arriveDateTime,
                        Passenger passenger, String seatNumber, float price, boolean specialService) {
             if(flight.isFlightAvailable()){
                 return new Regular(pnr,destination, departure, flight, departDateTime, arriveDateTime, passenger,
                         seatNumber, price, specialService );
-            }
-
-            else {
+            } else {
                 System.out.println("Sorry, all the seats in this flight are booked. Please check another flight.");
                 return null;
             }
     }
 
+    // to book a tourist ticket
     Tourist bookTicket(String pnr, String destination, String departure, Flight flight, String departDateTime, String arriveDateTime,
                        Passenger passenger, String seatNumber, float price, String hotelAddress, String[] touristLocation) {
         if(flight.getCapacity() > 0){
             return new Tourist(pnr,destination, departure, flight, departDateTime, arriveDateTime, passenger,
                     seatNumber, price, hotelAddress, touristLocation);
-        }
-
-        else {
+        } else {
             System.out.println("Sorry, all the seats in this flight are booked. Please check another flight.");
             return null;
         }
-
     }
-
 }

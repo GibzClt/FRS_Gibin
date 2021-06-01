@@ -22,56 +22,67 @@ public class Flight {
         this.flightAvailable = this.capacity > 0;
     }
 
-
-    public void setFlightAvailable(boolean flightAvailable) {
-        this.flightAvailable = flightAvailable;
-    }
-
-    public void setCapacity(int capacity) {
-        this.capacity = capacity;
-    }
-
-    public void setFlightNumber(String flightNumber) {
-        this.flightNumber = flightNumber;
-    }
-
-    public void setAirline(String airline) {
-        this.airline = airline;
-    }
-
-    public void setBookedSeats(int bookedSeats) {
-        this.bookedSeats = bookedSeats;
-    }
-
+    // to get the status of the availability of the flight
     public boolean isFlightAvailable(){
-        if(!(capacity > 0)) {
+        if(!(getCapacity() > 0)) {
             flightAvailable = false;
         }
         return flightAvailable;
     }
 
+    // to set the status of the availability of the flight
+    public void setFlightAvailable(boolean flightAvailable) {
+        this.flightAvailable = flightAvailable;
+    }
+
+    // to get the capacity of the flight
     public int getCapacity(){
         return capacity;
     }
 
-    public int getBookedSeats() {
-        return bookedSeats;
+    // to set the capacity of the flight
+    public void setCapacity(int capacity) {
+        this.capacity = capacity;
     }
 
+    // to get the flight number
     public String getFlightNumber() {
         return flightNumber;
     }
 
+    // to set the flight number of the flight
+    public void setFlightNumber(String flightNumber) {
+        this.flightNumber = flightNumber;
+    }
+
+    // to get the airline of the flight
     public String getAirline() {
         return airline;
     }
 
+    // to set the airline of the flight
+    public void setAirline(String airline) {
+        this.airline = airline;
+    }
+
+    // to get the number of booked seats in the flight
+    public int getBookedSeats() {
+        return bookedSeats;
+    }
+
+    // to set the number of booked seats of the flight
+    public void setBookedSeats(int bookedSeats) {
+        this.bookedSeats = bookedSeats;
+    }
+
+    // to update the seats of the flight
     void updateSeat(int i){
         bookedSeats+=i;
         capacity-=i;
     }
+
+    //to get the flight details
     String getFlightDetails(){
         return getFlightNumber() + "  " + getAirline() + "  | Capacity : " + getCapacity();
     }
-
 }
