@@ -103,6 +103,16 @@ public class Passenger {
             return registered;
     }
 
+    //To get the contact details
+    String getContactDetails(Contact contact){
+        return "Name : " + contact.getName() + "\nMobile number : " + contact.getPhone() + "\nEmail Id : " + contact.getEmail();
+    }
+
+    //To get the address details
+    String getAddressDetails(Address address){
+        return "Street : " + address.getStreet() + "\nCity : " + address.getCity() + "\nState : " + address.getState();
+    }
+
     Regular bookTicket(String pnr, String destination, String departure, Flight flight, String departDateTime, String arriveDateTime,
                        Passenger passenger, String seatNumber, float price, boolean specialService) {
             if(flight.isFlightAvailable()){
