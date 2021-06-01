@@ -2,7 +2,7 @@ package com.upgrad.frs;
 
 public class Passenger {
 
-    private String id;
+    private static int idCounter;
     private Contact contact;
     private Address address;
     Ticket ticket;
@@ -84,19 +84,23 @@ public class Passenger {
         }
     }
 
+    static {
+            idCounter = 0;
+    }
+
     Passenger(){
 
     }
 
-    Passenger( String id, String name, String phone, String email, String street, String city, String state){
-        this.id = id;
+    Passenger (String name, String phone, String email, String street, String city, String state){
+        this.idCounter = ++idCounter;
         this.contact = new Contact(name, phone, email);
         this.address = new Address(street, city, state);
         registered = true;
     }
 
     Passenger (Passenger passenger){
-        this.id = passenger.id;
+        this.idCounter = ++idCounter;
         this.contact = passenger.contact;
         this.address = passenger.address;
     }
@@ -114,6 +118,11 @@ public class Passenger {
     // to get the address details
     public String getAddressDetails(Address address){
         return "Street : " + address.getStreet() + "\nCity : " + address.getCity() + "\nState : " + address.getState();
+    }
+
+    // to get the total count of passengers registered
+    public int getPassengerCount(){
+            return idCounter;
     }
 
     // to book a regular ticket

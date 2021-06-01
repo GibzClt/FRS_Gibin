@@ -8,6 +8,7 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args){
         Scanner input = new Scanner(System.in);
+        Random number = new Random();
 
         // Welcome message
         System.out.println("====================================");
@@ -17,10 +18,8 @@ public class Main {
         System.out.println("====================================");
 
         // Passenger No.1
-        Random number = new Random();
-        String id = String.valueOf(number.nextInt(1000));
-        Passenger passenger = new Passenger(id, "Gibin", "8606851482", "gibinninan5@gmail.com", "TK road", "Pullad", "Kerala");
-        System.out.println("\nGibin (" + id +") " + "has been successfully registered with UpGrad flights !");
+        Passenger passenger = new Passenger( "Gibin", "8606851482", "gibinninan5@gmail.com", "TK road", "Pullad", "Kerala");
+        System.out.println("\nGibin (" + passenger.getPassengerCount() +") " + "has been successfully registered with UpGrad flights !");
 
         // Instantiating flight objects
         Flight flight_Etihad = new Flight("101", "Etihad", 200);
@@ -76,12 +75,15 @@ public class Main {
             System.out.println("Remaining flight capacity : " + flight_Etihad.getCapacity()); // Remaining flight capacity
             printTicketDetails(tourist_Gibin);                                                // Prints the PNR number
         }
+        else{
+            System.out.println(" Ticket denied due to invalid ticket type entry !");
+        }
 
 
         // Passenger No.2
         System.out.println("\n---------------------------\n");
         String pnr = "ET" +  String.valueOf(number.nextInt(10000));                     // Generating a PNR number
-        Passenger passenger_2 = new Passenger("02", "Joshua", "7037123456", "lala@email.com", "ibm", "gandhinagar", "goa");
+        Passenger passenger_2 = new Passenger("Joshua", "7037123456", "lala@email.com", "ibm", "gandhinagar", "goa");
         Regular regular_Joshua = passenger.bookTicket(pnr, "Bangalore", "Goa", flight_Etihad, "29-05-2021 16:20:00", "31-05-2021 17:25:00",
                 passenger_2, "13B", 10000, true);
         regular_Joshua.checkStatus();                                                         // To check the ticket status
@@ -95,7 +97,7 @@ public class Main {
         // Passenger No.3
         System.out.println("\n---------------------------\n");
         pnr = "ET" +  String.valueOf(number.nextInt(10000));                        // Generating a PNR number
-        Passenger passenger_3 = new Passenger("03", "Ashish", "4747553456", "tholath@email.com", "dollar", "kr puram", "bangalore");
+        Passenger passenger_3 = new Passenger( "Ashish", "4747553456", "tholath@email.com", "dollar", "kr puram", "bangalore");
         Regular regular_Ashish = passenger.bookTicket(pnr, "Bangalore", "Goa", flight_Etihad, "29-05-2021 16:20:00", "01-06-2021 18:25:00",
                 passenger_3, "13B", 10000, false);
         regular_Ashish.checkStatus();                                                     // To check the ticket status
@@ -109,7 +111,7 @@ public class Main {
         // Passenger No.4
         System.out.println("\n---------------------------\n");
         pnr = "IN" +  String.valueOf(number.nextInt(10000));               // Generating a PNR number
-        Passenger passenger_4 = new Passenger("04", "Ezra", "8032892615", "ezra@email.com", "Somandepalli", "Anantapur", "Andhra Pradesh");
+        Passenger passenger_4 = new Passenger("Ezra", "8032892615", "ezra@email.com", "Somandepalli", "Anantapur", "Andhra Pradesh");
         String[] location = {"Taj Mahal", "Red fort", "Qutub Minar"};        // Tourist locations
         Tourist tourist_Ezra = passenger.bookTicket(pnr,  destination, departure, flight_Indigo, "01-06-2021 10:32:00",
                 "01-06-2021 17:25:00", passenger, "11A", 12000, "Sardarji Hotel", location);
