@@ -112,7 +112,7 @@ public class Main {
         //Wrong PNR number given for demo
         regular_Joshua.cancelTicket("111", flight_Etihad);                              //Checks with the PNR number. Cancels the ticket if the PNR number matches
         System.out.println("Remaining flight capacity : " + flight_Etihad.getCapacity());   //Remaining flight capacity
-        System.out.println("---------------------------\n");
+        System.out.println("\n---------------------------\n");
 
     }
 

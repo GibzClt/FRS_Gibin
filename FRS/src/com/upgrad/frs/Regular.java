@@ -4,9 +4,16 @@ public class Regular extends Ticket {
     private boolean specialService;
 
     Regular(String pnr, String destination, String departure, Flight flight, String departDateTime,
-            String arriveDateTime, Passenger passenger, String seatNumber, float price, boolean specialServie) {
+            String arriveDateTime, Passenger passenger, String seatNumber, float price, boolean specialService) {
         super(pnr, destination, departure, flight, departDateTime, arriveDateTime, passenger, seatNumber, price);
-        this.specialService = specialServie;
+        this.specialService = specialService;
+        this.cancelled = false;
+        flight.updateSeat(1);
+    }
+
+    Regular(Regular regular){
+        super(regular.pnr, regular.destination, regular.departure, regular.flight, regular.departDateTime, regular.arriveDateTime, regular.passenger, regular.seatNumber, regular.price);
+        this.specialService = regular.specialService;
         this.cancelled = false;
         flight.updateSeat(1);
     }

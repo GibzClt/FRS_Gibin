@@ -17,6 +17,14 @@ public class Tourist extends Ticket{
 
     }
 
+    Tourist(Tourist tourist){
+        super(tourist.pnr, tourist.destination, tourist.departure, tourist.flight, tourist.departDateTime, tourist.arriveDateTime, tourist.passenger, tourist.seatNumber, tourist.price);
+        this.hotelAddress = tourist.hotelAddress;
+        this.touristLocation = tourist.touristLocation;
+        this.cancelled = false;
+        flight.updateSeat(1);
+    }
+
     public String getHotelAddress() {
         return hotelAddress;
     }

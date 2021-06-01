@@ -15,6 +15,14 @@ public class Flight {
         flightAvailable = this.capacity  > 0;
     }
 
+    Flight(Flight flight){
+        this.flightNumber = flight.flightNumber;
+        this.airline = flight.airline;
+        this.capacity = flight.capacity;
+        this.flightAvailable = this.capacity > 0;
+    }
+
+
     public void setFlightAvailable(boolean flightAvailable) {
         this.flightAvailable = flightAvailable;
     }
