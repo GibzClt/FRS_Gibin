@@ -36,9 +36,6 @@ public abstract class Ticket {
         return pnr;
     }
 
-//    public void setPnr(String pnr) {
-//        this.pnr = pnr;
-//    }
 
     public String getDestination() {
         return destination;
@@ -133,8 +130,7 @@ public abstract class Ticket {
             long differenceInHours = TimeUnit.MILLISECONDS.toHours(difference) % 24;
             long differenceInDays = TimeUnit.MILLISECONDS.toDays(difference) % 365;
 
-            return differenceInDays + " days, "+ differenceInHours + " hours, " + differenceInMinutes + " minutes, " +
-                    differenceInSeconds + " seconds";
+            return differenceInDays + " days, "+ differenceInHours + " hours, " + differenceInMinutes + " minutes, ";
         }
         catch (ParseException e){
             System.out.println("Wrong date format !!! ");

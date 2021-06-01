@@ -65,8 +65,8 @@ public class Main {
         else if (ticketType.equalsIgnoreCase("tourist")){
             String pnr = "ET" +  String.valueOf(number.nextInt(10000));               //Generating a PNR number
             String[] location = {"Aruvi waterfalls", "Olive waterfalls", "RJ park"};        //Tourist locations
-            Tourist tourist_Gibin = passenger.bookTicket(pnr,  destination, departure, flight_Etihad, "29-05-2021 16:20:05",
-                    "30-05-2021 17:25:10", passenger, "14F", 10000, "Sheraton Hotel", location);
+            Tourist tourist_Gibin = passenger.bookTicket(pnr,  destination, departure, flight_Etihad, "29-05-2021 16:20:00",
+                    "30-05-2021 17:25:00", passenger, "14F", 10000, "Sheraton Hotel", location);
             tourist_Gibin.checkStatus();                                                    //To check the ticket status
             System.out.println(Arrays.toString(tourist_Gibin.getTouristLocation()));        //Displaying the tourist locations
             System.out.println(flight_Etihad.getBookedSeats() + " seat booked ");           //Total number of booked seats in the respective flight
@@ -81,7 +81,7 @@ public class Main {
         System.out.println("---------------------------\n");
         String pnr = "ET" +  String.valueOf(number.nextInt(10000));                     //Generating a PNR number
         Passenger passenger_2 = new Passenger("02", "Joshua", "7037123456", "lala@email.com", "ibm", "gandhinagar", "goa");
-        Regular regular_Joshua = passenger.bookTicket(pnr, "Bangalore", "Goa", flight_Etihad, "29-05-2021 16:20:05", "31-05-2021 17:25:10",
+        Regular regular_Joshua = passenger.bookTicket(pnr, "Bangalore", "Goa", flight_Etihad, "29-05-2021 16:20:00", "31-05-2021 17:25:00",
                 passenger_2, "13B", 10000, true);
         regular_Joshua.checkStatus();                                                         //To check the ticket status
         System.out.println(regular_Joshua.displayServices());                                 //To check the ticket status
@@ -96,7 +96,7 @@ public class Main {
         System.out.println("---------------------------\n");
         pnr = "ET" +  String.valueOf(number.nextInt(10000));                        //Generating a PNR number
         Passenger passenger_3 = new Passenger("03", "Ashish", "4747553456", "tholath@email.com", "dollar", "kr puram", "bangalore");
-        Regular regular_Ashish = passenger.bookTicket(pnr, "Bangalore", "Goa", flight_Etihad, "29-05-2021 16:20:05", "01-06-2021 18:25:10",
+        Regular regular_Ashish = passenger.bookTicket(pnr, "Bangalore", "Goa", flight_Etihad, "29-05-2021 16:20:00", "01-06-2021 18:25:00",
                 passenger_3, "13B", 10000, false);
         regular_Ashish.checkStatus();                                                     //To check the ticket status
         System.out.println(regular_Ashish.displayServices());                             //To check the ticket status
@@ -104,6 +104,25 @@ public class Main {
         System.out.println("Duration of journey : " +  regular_Ashish.getDuration(regular_Ashish.getDepartDateTime(), regular_Ashish.getArriveDateTime())); //Duratioon of the journey
         System.out.println("Remaining flight capacity : " + flight_Etihad.getCapacity()); //Remaining flight capacity
         printTicketDetails(regular_Ashish);                                               //Prints the PNR number
+
+
+
+        //Passenger No.4
+        System.out.println("---------------------------\n");
+        pnr = "IN" +  String.valueOf(number.nextInt(10000));               //Generating a PNR number
+        Passenger passenger_4 = new Passenger("04", "Ezra", "8032892615", "ezra@email.com", "Somandepalli", "Anantapur", "Andhra Pradesh");
+        String[] location = {"Taj Mahal", "Red fort", "Qutub Minar"};        //Tourist locations
+        Tourist tourist_Ezra = passenger.bookTicket(pnr,  destination, departure, flight_Indigo, "01-06-2021 10:32:00",
+                "01-06-2021 17:25:00", passenger, "11A", 12000, "Sardarji Hotel", location);
+        tourist_Ezra.checkStatus();                                                    //To check the ticket status
+        System.out.println(Arrays.toString(tourist_Ezra.getTouristLocation()));        //Displaying the tourist locations
+        tourist_Ezra.addLocation("India Gate");                                        //Adding one more location
+        System.out.println(Arrays.toString(tourist_Ezra.getTouristLocation()));        //Displaying the updated tourist locations
+        System.out.println(flight_Indigo.getBookedSeats() + " seat booked ");           //Total number of booked seats in the respective flight
+        System.out.println("Duration of journey : " +  tourist_Ezra.getDuration(tourist_Ezra.getDepartDateTime(), tourist_Ezra.getArriveDateTime())); //Duratioon of the journey
+        System.out.println("Remaining flight capacity : " + flight_Indigo.getCapacity()); //Remaining flight capacity
+        printTicketDetails(tourist_Ezra);                                                //Prints the PNR number
+
 
 
         System.out.println("---------------------------\n");
@@ -118,6 +137,6 @@ public class Main {
 
     //Function to print ticket details
     public static void printTicketDetails(Ticket ticket){
-        System.out.println(ticket.getPnr());
+        System.out.println(ticket.getPnr() + "  ---->  " + ticket.flight.getFlightNumber() + " " + ticket.flight.getAirline());
     }
 }
