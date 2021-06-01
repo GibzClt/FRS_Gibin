@@ -83,6 +83,6 @@ public class Flight {
 
     //to get the flight details
     String getFlightDetails(){
-        return getFlightNumber() + "  " + getAirline() + "  | Capacity : " + getCapacity();
+        return String.format("%-5s %-12s | %-5s",getFlightNumber(), getAirline(), getCapacity());
     }
 }

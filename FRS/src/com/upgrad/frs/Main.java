@@ -12,8 +12,9 @@ public class Main {
         // Welcome message
         System.out.println("====================================");
         System.out.println("    Welcome to UpGrad flights !");
+        System.out.println("------------------------------------");
+        System.out.println("       Flight ko karo lift");
         System.out.println("====================================");
-        System.out.println("      Flight ko karo lift");
 
         // Passenger No.1
         Random number = new Random();
@@ -47,6 +48,7 @@ public class Main {
         // User has to choose the type of ticket
         System.out.print("\nRegular ticket or a Tourist ticket : ");
         String ticketType = input.next();
+        System.out.println("\n---------------------------\n");
 
         // When the user chooses a regular ticket
         if (ticketType.equalsIgnoreCase("regular")){
@@ -77,7 +79,7 @@ public class Main {
 
 
         // Passenger No.2
-        System.out.println("---------------------------\n");
+        System.out.println("\n---------------------------\n");
         String pnr = "ET" +  String.valueOf(number.nextInt(10000));                     // Generating a PNR number
         Passenger passenger_2 = new Passenger("02", "Joshua", "7037123456", "lala@email.com", "ibm", "gandhinagar", "goa");
         Regular regular_Joshua = passenger.bookTicket(pnr, "Bangalore", "Goa", flight_Etihad, "29-05-2021 16:20:00", "31-05-2021 17:25:00",
@@ -91,7 +93,7 @@ public class Main {
 
 
         // Passenger No.3
-        System.out.println("---------------------------\n");
+        System.out.println("\n---------------------------\n");
         pnr = "ET" +  String.valueOf(number.nextInt(10000));                        // Generating a PNR number
         Passenger passenger_3 = new Passenger("03", "Ashish", "4747553456", "tholath@email.com", "dollar", "kr puram", "bangalore");
         Regular regular_Ashish = passenger.bookTicket(pnr, "Bangalore", "Goa", flight_Etihad, "29-05-2021 16:20:00", "01-06-2021 18:25:00",
@@ -105,7 +107,7 @@ public class Main {
 
 
         // Passenger No.4
-        System.out.println("---------------------------\n");
+        System.out.println("\n---------------------------\n");
         pnr = "IN" +  String.valueOf(number.nextInt(10000));               // Generating a PNR number
         Passenger passenger_4 = new Passenger("04", "Ezra", "8032892615", "ezra@email.com", "Somandepalli", "Anantapur", "Andhra Pradesh");
         String[] location = {"Taj Mahal", "Red fort", "Qutub Minar"};        // Tourist locations
@@ -121,7 +123,7 @@ public class Main {
         printTicketDetails(tourist_Ezra);                                                // Prints the PNR number
 
 
-        System.out.println("---------------------------\n");
+        System.out.println("\n---------------------------\n");
         // Secured ticket cancellation. Ticket will be cancelled only if the passenger enters the correct PNR number.
         // Wrong PNR number given for demo
         regular_Joshua.cancelTicket("111", flight_Etihad);                              // Checks with the PNR number. Cancels the ticket if the PNR number matches
